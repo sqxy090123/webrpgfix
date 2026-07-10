@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         RPG Maker Require Fix
 // @namespace    https://github.com/sqxy090123/webrpgfix
-// @version      10.0.0
+// @version      10.0.0.1
 // @description  为 RPG Maker 网页游戏补齐 require，支持 @ 根目录，模拟 fs/path 等核心模块，并实现 fs.readFileSync 从服务器读取文件
 // @author       sqxy090123
 // @match        *://*/*
 // @run-at       document-start
-// @grant        none
+// @grant        GM_notification
 // @license      MIT
 // @updateURL    https://raw.githubusercontent.com/sqxy090123/webrpgfix/main/rpgmaker-require-fix.user.js
 // @downloadURL  https://raw.githubusercontent.com/sqxy090123/webrpgfix/main/rpgmaker-require-fix.user.js
@@ -43,12 +43,11 @@
 
     // ---------- 模拟 Node.js 核心模块 ----------
     function createCoreModules() {
-        // 由于 resolvePath 依赖 location，在函数内定义
         const fs = {
             existsSync: function(path) {
                 const url = resolvePath(path, false);
                 console.warn('[fs.existsSync] 模拟调用，路径: ' + path + ' -> URL: ' + url + ' → 返回 true');
-                return true; // 简化，不实际检查
+                return true;
             },
             readFileSync: function(path, encoding) {
                 const url = resolvePath(path, false);
@@ -62,11 +61,9 @@
                         if (encoding && encoding.toLowerCase() === 'utf8') {
                             return content;
                         }
-                        // 如果没有指定编码，尝试返回 Buffer 对象（如果存在）
                         if (typeof Buffer !== 'undefined') {
                             return Buffer.from(content, 'utf8');
                         }
-                        // 否则返回字符串
                         return content;
                     } else {
                         console.warn('[fs.readFileSync] 读取失败 (' + xhr.status + '): ' + url);
@@ -164,20 +161,16 @@
         const cache = {};
 
         window.require = function(moduleName) {
-            // 核心模块
             if (moduleName in coreModules) {
                 return coreModules[moduleName];
             }
 
-            // 解析路径（自动补 .js）
             const url = resolvePath(moduleName, true);
 
-            // 缓存检查
             if (cache[url]) {
                 return cache[url];
             }
 
-            // 同步加载
             try {
                 const xhr = new XMLHttpRequest();
                 xhr.open('GET', url, false);
@@ -204,6 +197,16 @@
 
         window.require.cache = cache;
         console.log('[RPG Maker Require] 已定义（根目录：' + location.origin + '，核心模块已模拟）');
+
+        // 发送系统通知，告知修复成功（仅首次定义时触发）
+        GM_notification({
+            title: 'RPG Maker Require Fix',
+            text: '✅ require 异常已修复 (版本 10.0.0.0)',
+            timeout: 5000,
+            onclick: function() {
+                console.log('[RPG Maker Require] 通知被点击');
+            }
+        });
     }
 
     // ---------- 检测 RPG Maker 并注入 ----------
