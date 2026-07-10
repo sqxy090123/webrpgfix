@@ -10,6 +10,7 @@
 // @license      MIT
 // @updateURL    https://raw.githubusercontent.com/sqxy090123/webrpgfix/main/rpgmaker-require-fix.user.js
 // @downloadURL  https://raw.githubusercontent.com/sqxy090123/webrpgfix/main/rpgmaker-require-fix.user.js
+// @icon         https://raw.githubusercontent.com/sqxy090123/webrpgfix/refs/heads/main/rpgmaker.png
 // ==/UserScript==
 
 (function() {
