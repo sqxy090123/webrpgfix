@@ -6,9 +6,9 @@
 
 ## 📦 收录脚本
 
-| 脚本名称 | 功能描述 | 安装链接 |
-|----------|----------|----------|
-| **RPG Maker Require Fix** | 补齐缺失的 `require` 函数，支持 Node.js 风格模块加载（`@` 映射根目录），并模拟 `fs`、`path` 等核心模块，避免插件因调用 Node.js API 而崩溃。 | [安装](https://raw.githubusercontent.com/sqxy090123/webrpgfix/main/rpgmaker-require-fix.user.js) |
+| 文件名称 | 脚本名称 | 功能描述 | 安装链接 |
+|----------|----------|----------|----------|
+| rpgmaker-require-fix.user.js | **RPG Maker Require Fix** | 补齐缺失的 `require` 函数，支持 Node.js 风格模块加载（`@` 映射根目录），并模拟 `fs`、`path` 等核心模块，避免插件因调用 Node.js API 而崩溃。 | [安装](https://raw.githubusercontent.com/sqxy090123/webrpgfix/main/rpgmaker-require-fix.user.js) |
 
 *更多修复脚本即将添加……*
 
