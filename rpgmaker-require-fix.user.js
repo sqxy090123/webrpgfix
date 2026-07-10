@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RPG Maker Require Fix
 // @namespace    https://github.com/sqxy090123/webrpgfix
-// @version      10.0.0.1
+// @version      1.0.0.0
 // @description  为 RPG Maker 网页游戏补齐 require，支持 @ 根目录，模拟 fs/path 等核心模块，并实现 fs.readFileSync 从服务器读取文件
 // @author       sqxy090123
 // @match        *://*/*
