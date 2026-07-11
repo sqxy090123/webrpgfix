@@ -9,7 +9,7 @@
 | 文件名称 | 脚本名称 | 功能描述 | 安装链接 |
 |----------|----------|----------|----------|
 | rpgmaker-require-fix.user.js | **RPG Maker Require Fix** | 补齐缺失的 `require` 函数，支持 Node.js 风格模块加载（`@` 映射根目录），并模拟 `fs`、`path` 等核心模块，避免插件因调用 Node.js API 而崩溃。 | [安装](https://raw.githubusercontent.com/sqxy090123/webrpgfix/main/rpgmaker-require-fix.user.js) |
-| ~~rpgmaker-graphics-fix.user.js (已废弃)~~ | **RPG Maker MZ Graphics Fix** |	请启用`enable-webgl-draft-extensions`特性，[Edge跳转](edge://flags/#enable-webgl-draft-extensions)<br>~~修复 RPG Maker MZ 游戏中 Failed to initialize graphics 错误，创建可靠的 Graphics 模拟对象并修补 SceneManager.initGraphics，确保游戏正常启动。~~ | ~~[安装](javascript: alert("已废弃"))~~ |
+| ~~rpgmaker-graphics-fix.user.js (已废弃)~~ | **RPG Maker MZ Graphics Fix** |	请启用`enable-webgl-draft-extensions`特性，[Edge跳转](edge://flags/#enable-webgl-draft-extensions)<br>~~修复 RPG Maker MZ 游戏中 Failed to initialize graphics 错误，创建可靠的 Graphics 模拟对象并修补 SceneManager.initGraphics，确保游戏正常启动。~~ | ~~[安装](javascript:alert("已废弃"))~~ |
 
 *更多修复脚本即将添加……*
 
